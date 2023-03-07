@@ -4,8 +4,7 @@ import PropTypes from 'prop-types';
 const Statistics = ({ title, stats }) => {
   return (
     <section className="statistics">
-      {title ? <h2 className="title">Upload stats</h2> : ''}
-
+      {title && <h2 className="title">{title}</h2>}
       <ul className={css.statList}>
         {stats.map(({ id, label, percentage }) => (
           <li
@@ -29,6 +28,6 @@ Statistics.propTypes = {
       id: PropTypes.string.isRequired,
       label: PropTypes.string.isRequired,
       percentage: PropTypes.number.isRequired,
-    })
-  ),
+    }).isRequired,
+  ).isRequired,
 };
